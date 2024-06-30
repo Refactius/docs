@@ -1,2 +1,0 @@
-# docs
-a powernukkix documentation

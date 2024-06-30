@@ -1,0 +1,64 @@
+import {Cards, Steps, Tabs} from "nextra/components";
+
+## Exigences système
+- Windows 10/11
+- macOS 10.15 ou ultérieur
+- Linux (Ubuntu 20.04, Fedora 32, Debian 10/11)
+
+## Exigences Java
+Java 21 est indispensable pour exécuter le programme. Vous pouvez le télécharger pour Windows/MacOs : [Java 21](https://sdkman.io/jdks).
+
+<details>
+    <summary>Pour Linux</summary>
+
+    Pour installer <a>Java 21 sur Linux</a>, vous pouvez suivre les étapes suivantes
+
+    <Steps>
+        ### Ouvrez un terminal.
+
+        ### Mettez à jour les paquets
+
+        <Tabs items={['avec sudo', 'sans sudo']}>
+            <Tabs.Tab>
+                ```bash
+                sudo apt update
+                ```
+            </Tabs.Tab>
+            <Tabs.Tab>
+                ```bash
+                apt update
+                ```
+            </Tabs.Tab>
+        </Tabs>
+
+        ### Installez le JDK 21
+
+        <Tabs items={['avec sudo', 'sans sudo']}>
+            <Tabs.Tab>
+                ```bash
+                sudo apt install openjdk-21-jdk
+                ```
+            </Tabs.Tab>
+            <Tabs.Tab>
+                ```bash
+                apt install openjdk-21-jdk
+                ```
+            </Tabs.Tab>
+        </Tabs>
+
+        ### Vérifiez l'installation
+
+        ```bash
+        java -version
+        ```
+
+        Si tout s'est bien passé, vous devriez voir la version de Java affichée.
+    </Steps>
+
+</details>
+
+## Installation de PowerNukkitX
+<Cards>
+    <Cards.Card icon="📦" title="Téléchargement CLI (Auto)" href="/installation/cli" children=""></Cards.Card>
+    <Cards.Card icon="📂" title="Téléchargement Manuel" href="/installation/manuel" children=""></Cards.Card>
+</Cards>

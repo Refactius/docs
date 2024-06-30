@@ -17,7 +17,7 @@ const config: DocsThemeConfig = {
         link: 'https://discord.com',
     },
     darkMode: true,
-    docsRepositoryBase: 'https://github.com/',
+    docsRepositoryBase: 'https://github.com/PowerNukkitX/docs',
     footer: {
         component: function () {
             return <></>
@@ -55,11 +55,13 @@ const config: DocsThemeConfig = {
                     href="https://fonts.gstatic.com"
                     crossOrigin="anonymous"
                 />
+                <link rel="shortcut icon" href={"/favicon.svg"} type="image/svg+xml"/>
+                <link rel="apple-touch-icon" href={"/favicon.svg"} type="image/svg+xml"/>
             </>
         )
     },
     useNextSeoProps() {
-        const { asPath, pathname, query } = useRouter();
+        const {asPath, pathname, query} = useRouter();
 
         if (['/'].includes(asPath)) {
             return { titleTemplate: 'PowerNukkitX | Docs' };

@@ -1,4 +1,4 @@
-# Requirements
+import { Cards, Steps, Tabs } from "nextra/components";
 
 ## System Requirements
 - Windows 10/11
@@ -6,20 +6,59 @@
 - Linux (Ubuntu 20.04, Fedora 32, Debian 10/11)
 
 ## Java Requirements
-Java 21 est indispensable pour exécuter le programme. Vous pouvez le télécharger [ici](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html).
+Java 21 is essential to run the program. You can download it for Windows/MacOS: [Java 21](https://sdkman.io/jdks).
 
 <details>
+    <summary>For Linux</summary>
 
-    <summary>Tips for collapsed sections</summary>
+    To install <a>Java 21 on Linux</a>, you can follow these steps:
 
-    ### You can add a header
+    <Steps>
+        ### Open a terminal.
 
-    You can add text within a collapsed section.
+        ### Update packages
 
-    You can add an image or a code block, too.
+        <Tabs items={['with sudo', 'without sudo']}>
+            <Tabs.Tab>
+                ```bash
+                sudo apt update
+                ```
+            </Tabs.Tab>
+            <Tabs.Tab>
+                ```bash
+                apt update
+                ```
+            </Tabs.Tab>
+        </Tabs>
 
-    ```ruby
-    puts "Hello World"
-    ```
+        ### Install JDK 21
+
+        <Tabs items={['with sudo', 'without sudo']}>
+            <Tabs.Tab>
+                ```bash
+                sudo apt install openjdk-21-jdk
+                ```
+            </Tabs.Tab>
+            <Tabs.Tab>
+                ```bash
+                apt install openjdk-21-jdk
+                ```
+            </Tabs.Tab>
+        </Tabs>
+
+        ### Verify the installation
+
+        ```bash
+        java -version
+        ```
+
+        If everything went well, you should see the Java version displayed.
+    </Steps>
 
 </details>
+
+## PowerNukkitX Installation
+<Cards>
+    <Cards.Card icon="📦" title="CLI Download (Auto)" href="/installation/cli" children=""></Cards.Card>
+    <Cards.Card icon="📂" title="Manual Download" href="/installation/manual" children=""></Cards.Card>
+</Cards>

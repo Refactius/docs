@@ -109,6 +109,12 @@ li > a {
     white-space: nowrap;
 }
 
+li.active > a{
+    white-space: nowrap;
+    color: #42e158 !important;
+    transition: color 0.2s ease;
+}
+
 .svg {
     width: 100%;
     height: 100%;

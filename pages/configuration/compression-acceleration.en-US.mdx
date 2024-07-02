@@ -1,0 +1,44 @@
+import { Steps } from "nextra/components";
+
+# Hardware Compression Acceleration
+
+Hardware compression acceleration is an optional function provided by PNX, which can accelerate data compression by using hardware SIMD on modern CPUs.
+
+## Why?
+
+PNX is suitable for large servers. Many PNX servers host dozens or even hundreds of players at the same time, which means that each player generates a large amount of data. Due to the requirements of the Bedrock version, this data needs to be compressed before it can be sent to players.
+Additionally, when players run maps, a large amount of map data is generated and also needs to be compressed and decompressed frequently.
+This data that needs to be compressed or decompressed consumes a lot of CPU resources. Using hardware compression and decompression acceleration can greatly improve performance.
+
+## What CPUs can enable this?
+
+If your CPU can enable hardware-accelerated compression, PNX will notify you at startup.
+
+When your CPU supports one or more of the following instruction sets, hardware-accelerated compression can be enabled. The more instruction sets supported, the greater the performance improvement:
+
+| Instruction Set | Explanation |
+|-----------------|-------------|
+| AVX512          | Intel/AMD   |
+| AVX2            | Intel/AMD   |
+| AVX             | Intel/AMD   |
+| SSE4.2          | Intel/AMD   |
+| SSE4.1          | Intel/AMD   |
+| SSSE3           | Intel/AMD   |
+| SSE3            | Intel/AMD   |
+| SSE2            | Intel/AMD   |
+| SSE             | Intel/AMD   |
+| SVE             | ARMv8.2+    |
+| NEON            | ARMv7+      |
+
+## How to enable it?
+
+<Steps>
+    ### Modify the configuration file `nukkit.yml`.
+    ### Set `zlib-provider` in `network` to `3`.
+    ### Here is what it looks like:
+
+    ```yaml filename="nukkit.yml"
+    network:
+    zlib-provider: 3
+    ```
+</Steps>

@@ -1,5 +1,6 @@
 {
   "index": "Introduction",
   "requirements": "Exigences",
-  "installation": "Installation"
+  "installation": "Installation",
+    "configuration": "Configuration"
 }

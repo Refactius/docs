@@ -1,0 +1,32 @@
+# Chiffrement des packs de ressources
+
+Le chiffrement des packs de ressources mentionné ici signifie simplement que PowerNukkitX vous permet d'utiliser un pack de ressources que vous avez chiffré. Vous devez simplement configurer une clé de 32 caractères pour votre pack de ressources selon le tutoriel ci-dessous afin de permettre au client du joueur de le charger normalement.
+
+Veuillez noter que le chiffrement des packs de ressources ne peut pas empêcher totalement les personnes malveillantes de voler votre pack de ressources, car il s'agit d'un chiffrement symétrique par clé `AES`.
+
+En seulement 3 étapes, suivez et commencez !
+
+## 1. Chiffrer mon pack de ressources
+
+Outil de chiffrement :
+- [EncryptMyPack](https://github.com/AllayMC/EncryptMyPack)
+
+Quelques précautions :
+- Le pack de ressources doit se terminer par `.mcpack`
+- Le répertoire racine du fichier mcpack ne doit pas contenir de dossiers imbriqués. Le fichier `manifest.json` doit être visible dans le répertoire racine du pack de ressources.
+- **PowerNukkitX lui-même ne contient aucune logique de chiffrement et de déchiffrement, mais envoie simplement 32 clés au client selon votre configuration (c'est très important)**
+
+## 2. Configurer votre clé
+
+Le fichier portant le même nom que le pack de ressources a l'extension `.key`. Le contenu est la clé de 32 caractères correspondant au pack de ressources.
+
+Exemple : Il y a deux fichiers dans le dossier `resource_packs`.
+
+| Nom du fichier      | Description  |
+|---------------------|--------------|
+| x1.mcpack           | Un pack de ressources nommé `x1`   |
+| x1.mcpack.key       | Clé du pack de ressources `x1.mcpack`  |
+
+## 3. Redémarrer le serveur pour appliquer les modifications
+
+PowerNukkitX ne charge les fichiers dans `resource_packs` qu'au démarrage, vous devez donc redémarrer le serveur pour que les modifications prennent effet.

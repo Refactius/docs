@@ -1,7 +1,5 @@
 {
-  "server-properties": "Server properties",
+  "files": "Files",
   "compression-acceleration": "Hardware Compression",
-  "resource-encryption": "Pack Encryption",
-  "world-settings": "World Settings",
-  "proxy-config": "Proxy Configuration"
+  "resource-encryption": "Resource Pack Encryption"
 }

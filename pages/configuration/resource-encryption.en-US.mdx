@@ -1,32 +1,40 @@
-# Resourcepack encryption
+import { Callout } from "nextra/components";
 
-The resource package encryption here only means that PowerNukkitX supports you to use the resource package encrypted by you. You only need to configure a 32-key for your resource package according to the following tutorial to enable the player client to load normally.
+# Resource Pack Encryption
 
-Please note that resource package encryption cannot completely prevent people with ulterior motives from stealing your resource package, because it is `AES` symmetric key encryption.
+The resource pack encryption means that PowerNukkitX enables you to use resource packs encrypted by you. You only need to configure a 32-key for your resource pack according to the following tutorial to enable the player client to load normally.
 
-Just 3 steps, keep up and get started!
+***Just 3 steps, keep up and get started!***
+
+<Callout type="warning" emoji="⚠️">
+    Please note that resource pack encryption cannot completely prevent people with ulterior motives from stealing your resource pack since it is using `AES`, a symmetric key encryption.
+</Callout>
+
 
 ## 1. Encrypt my resource pack
-Encrypt Tool:
-- [EncryptMyPack](https://github.com/AllayMC/EncryptMyPack)
+Choose a tool to encrypt your resource pack.
+We recommend using [EncryptMyPack](https://github.com/AllayMC/EncryptMyPack)
 
 Some precautions:
-- Resource package ends with `.mcpack`
-- The root directory of the mcpack file cannot be nested with folders. The `manifest.json` file must be visible in the root directory of the resource package.
-- **PowerNukkitX itself does not contain any encryption and decryption logic, but only sends 32 keys to the client according to your configuration (this is very important)**
+- The resource pack must end with `.mcpack`. If you are using a ZIP file right now, simply rename it to `.mcpack`.
+- The root directory of the file cannot be nested with folders. The `manifest.json` file must be visible in the root directory of the resource pack.
+
+<Callout type="info">
+    PowerNukkitX itself does not contain any encryption and decryption logic, it only sends the encryption keys to the client according to your configuration
+</Callout>
 
 
 ## 2. Configure your key
+Create a new file named after your resource pack, ending with `.key`.
+After creating the file, paste the encryption key inside it.
 
-The file with the same name as the resource package is named with a `.key` file extension name. The content is the 32-key corresponding to the resource package.
+Example file structure of your `resource_packs` folder:
 
-Example: There are two files in the `resource_packs` folder.
+| File          | Description                                  |
+|---------------|----------------------------------------------|
+| x1.mcpack     | A resource pack named `x1`                   |
+| x1.mcpack.key | This is the key of `x1.mcpack` resource pack |
 
-| file name      | description  |
-|-----------------|---------------|
-| x1.mcpack         | A resource package named `x1`   |
-| x1.mcpack.key           | This is the key of `x1.mcpack` resource package  |
+## 3. Restart the server for your changes to take effect
 
-## 3. Restart the server to make it effective
-
-PowerNukkitX will only load the files in `resource_packs` when it starts, so you need to restart it to make it take effect.
+PowerNukkitX will only load the files located inside `resource_packs` on startup.

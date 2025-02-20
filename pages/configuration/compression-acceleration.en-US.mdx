@@ -2,43 +2,43 @@ import { Steps } from "nextra/components";
 
 # Hardware Compression Acceleration
 
-Hardware compression acceleration is an optional function provided by PNX, which can accelerate data compression by using hardware SIMD on modern CPUs.
+Hardware Compression Acceleration (HCA) is an optional function provided by PowerNukkitX, which can accelerate data compression by using hardware SIMD on modern CPUs.
 
 ## Why?
 
-PNX is suitable for large servers. Many PNX servers host dozens or even hundreds of players at the same time, which means that each player generates a large amount of data. Due to the requirements of the Bedrock version, this data needs to be compressed before it can be sent to players.
-Additionally, when players run maps, a large amount of map data is generated and also needs to be compressed and decompressed frequently.
-This data that needs to be compressed or decompressed consumes a lot of CPU resources. Using hardware compression and decompression acceleration can greatly improve performance.
+PowerNukkitX is suitable for large servers. Many servers carry dozens or even hundreds of player at the same time, which means that each player will generate a large amount of data. Due to the requirements of the bedrock version, this data needs to be compressed before it is sent to a player.
+At the same time, when a player runs around a map, a large number of chunks generated also need to be compressed and decompressed frequently.  
+The data required to be compressed or decompressed consumes a lot of CPU resources. Using **HCA** can greatly improve the performance.
 
-## What CPUs can enable this?
+## What CPU can enable this?
 
-If your CPU can enable hardware-accelerated compression, PNX will notify you at startup.
+If your CPU is able to enable hardware accelerated compression, you will be prompted on startup.
 
-When your CPU supports one or more of the following instruction sets, hardware-accelerated compression can be enabled. The more instruction sets supported, the greater the performance improvement:
+When your CPU supports one or more of the following instruction sets, **HCA** can be enabled. The more instruction sets supported, the more advanced and the greater the performance improvement will be：
 
-| Instruction Set | Explanation |
-|-----------------|-------------|
-| AVX512          | Intel/AMD   |
-| AVX2            | Intel/AMD   |
-| AVX             | Intel/AMD   |
-| SSE4.2          | Intel/AMD   |
-| SSE4.1          | Intel/AMD   |
-| SSSE3           | Intel/AMD   |
-| SSE3            | Intel/AMD   |
-| SSE2            | Intel/AMD   |
-| SSE             | Intel/AMD   |
-| SVE             | ARMv8.2+    |
-| NEON            | ARMv7+      |
+| Instruction set | explain   |
+|-----------------|-----------|
+| AVX512          | Intel/AMD |
+| AVX2            | Intel/AMD |
+| AVX             | Intel/AMD |
+| SSE4.2          | Intel/AMD |
+| SSE4.1          | Intel/AMD |
+| SSSE3           | Intel/AMD |
+| SSE3            | Intel/AMD |
+| SSE2            | Intel/AMD |
+| SSE             | Intel/AMD |
+| SVE             | ARMv8.2+  |
+| NEON            | ARMv7+    |
 
 ## How to enable it?
 
 <Steps>
-    ### Modify the configuration file `nukkit.yml`.
-    ### Set `zlib-provider` in `network` to `3`.
-    ### Here is what it looks like:
+    ### Open the configuration file <a href="/configuration/files/pnx-yml">pnx.yml</a>.
+    ### Locate the `network` tab.
+    ### Set `zlibProvider` to `3`.
 
-    ```yaml filename="nukkit.yml"
+    ```yaml filename="pnx.yml"
     network:
-    zlib-provider: 3
+        zlibProvider: 3
     ```
 </Steps>

@@ -1,12 +1,28 @@
-import { Cards, Steps, Tabs } from "nextra/components";
+import { Callout, Cards, Steps, Tabs } from "nextra/components";
 
-## System Requirements
-- Windows 10/11
-- macOS 10.15 or later
-- Linux (Ubuntu 20.04, Fedora 32, Debian 10/11)
+## System Requirements  
+
+To run the PowerNukkitX server smoothly, make sure to meet the requirements below:
+
+- **CPU:** Dual-core processor (Intel/AMD, 2.5 GHz or higher)
+- **RAM:** 2 GB | 4 GB+ recommended for better performance
+- **Storage:** At least 256 MB of free space to install | Multiple Gigabytes recommended to save player and world data
+
+🔹 *For larger servers (20+ players), allocate at least **4–8 GB of RAM** and ensure you have a strong CPU.*
 
 ## Java Requirements
-Java 21 is essential to run the program. You can download it for Windows/MacOS: [Java 21](https://sdkman.io/jdks).
+
+Before setting up your server, ensure you have **JDK 21 or higher** installed.  
+
+🔹 **Download the latest version here:** [GraalVM JDK 21+](https://www.graalvm.org/downloads)  
+
+<Callout type="info">
+    You can check your installed Java version by running:
+    ```sh
+    java -version
+    ```
+    If the output shows a version **lower** than 21, update your JDK before proceeding.
+</Callout>
 
 <details>
     <summary>For Linux</summary>
@@ -18,33 +34,15 @@ Java 21 is essential to run the program. You can download it for Windows/MacOS: 
 
         ### Update packages
 
-        <Tabs items={['with sudo', 'without sudo']}>
-            <Tabs.Tab>
-                ```bash
-                sudo apt update
-                ```
-            </Tabs.Tab>
-            <Tabs.Tab>
-                ```bash
-                apt update
-                ```
-            </Tabs.Tab>
-        </Tabs>
+        ```bash
+        sudo apt update
+        ```
 
         ### Install JDK 21
 
-        <Tabs items={['with sudo', 'without sudo']}>
-            <Tabs.Tab>
-                ```bash
-                sudo apt install openjdk-21-jdk
-                ```
-            </Tabs.Tab>
-            <Tabs.Tab>
-                ```bash
-                apt install openjdk-21-jdk
-                ```
-            </Tabs.Tab>
-        </Tabs>
+        ```bash
+        sudo apt install openjdk-21-jdk
+        ```
 
         ### Verify the installation
 
@@ -60,11 +58,11 @@ Java 21 is essential to run the program. You can download it for Windows/MacOS: 
 ## Installing PowerNukkitX
 To install <a>PowerNukkitX</a>, you have several installation methods available:
 - CLI (Automatic)
-- Manual Windows
-- Manual Linux
+- Manual for Windows
+- Manual for Linux
 
 <Cards>
     <Cards.Card icon="📦" title="CLI (Auto)" href="/installation/cli" children=""></Cards.Card>
-    <Cards.Card icon="📂" title="Manuel Windows" href="/installation/manuel/windows" children=""></Cards.Card>
-    <Cards.Card icon="📂" title="Manuel Linux" href="/installation/manuel/linux" children=""></Cards.Card>
+    <Cards.Card icon="📂" title="Manual (Windows)" href="/installation/manual/windows" children=""></Cards.Card>
+    <Cards.Card icon="📂" title="Manual (Linux)" href="/installation/manual/linux" children=""></Cards.Card>
 </Cards>

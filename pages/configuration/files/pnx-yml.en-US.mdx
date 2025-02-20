@@ -1,0 +1,333 @@
+import { Callout, FileTree, Steps, Tabs } from "nextra/components";
+
+# PNX Advanced Settings
+
+<Callout type={"info"}>This page displays the `pnx.yml` file of PowerNukkitX with default values</Callout>
+
+```yaml showLineNumbers filename="pnx.yml"
+settings:
+  language: eng
+  forceServerTranslate: false
+  shutdownMessage: Server closed
+  queryPlugins: true
+  deprecatedVerbose: true
+  asyncWorkers: auto
+  safeSpawn: true
+  installSpark: true
+  waterdogpe: false
+  autosave: 6000
+  saveUnknownBlock: true
+network-settings:
+  compressionLevel: 7
+  zlibProvider: 3
+  snappy: false
+  compressionBufferSize: 1048576
+  maxDecompressSize: 67108864
+  packetLimit: 240
+debug-settings:
+  level: INFO
+  command: false
+  ignoredPackets: []
+  allowBeta: false
+level-settings:
+  autoTickRate: true
+  autoTickRateLimit: 20
+  baseTickRate: 1
+  alwaysTickPlayers: false
+  enableRedstone: true
+  tickRedstone: true
+  chunkUnloadDelay: 15000
+  levelThread: false
+  default-format: leveldb
+  auto-tick-rate: true
+  auto-tick-rate-limit: 20
+  base-tick-rate: 1
+  always-tick-players: false
+  tick-redstone: true
+  chunk-unload-delay: 15000
+chunk-settings:
+  perTickSend: 8
+  spawnThreshold: 56
+  chunksPerTicks: 40
+  tickRadius: 3
+  lightUpdates: true
+  clearTickList: false
+  generationQueueSize: 16
+memory-settings:
+  enable: true
+  slots: 32
+  defaultTemperature: 32
+  freezingPoint: 0
+  boilingPoint: 1024
+  absoluteZero: -256
+  melting: 16
+  singleOperation: 1
+  batchOperation: 32
+player-settings:
+  savePlayerData: true
+  skinChangeCooldown: 30
+  forceSkinTrusted: false
+  checkMovement: true
+  spawnRadius: 16
+gameplay-settings:
+  enableCommandBlocks: true
+
+```
+
+## Base settings
+*Within the file: `settings`*
+
+### `language`
+- **Description:** The language used within the console.
+- **Accepted values:** Any 
+- **Default value:** `eng`
+
+### `forceServerTranslate`
+- **Description:** Whether the server translates the text when sending or the client translates.
+- **Accepted values:** `true`, `false`
+- **Default value:** `false`
+
+### `shutdownMessage`
+- **Description:** The message sent to players when the server shuts down.
+- **Accepted values:** Any
+- **Default value:** `Server closed`
+
+### `queryPlugins`
+- **Description:** Whether the query protocol displays plugin information. Only applies if `enable-query` is set to true in <a href="/configuration/files/server-properties">server.properties</a>.
+- **Accepted values:** `true`, `false`
+- **Default value:** `true`
+
+### `deprecatedVerbose`
+- **Description:** Whether to prompt for deprecated events used by plugins.
+- **Accepted values:** `true`, `false`
+- **Default value:** `true`
+
+### `asyncWorkers`
+- **Description:** The number of threads used by the server's scheduler.
+- **Accepted values:** Any number (use `auto` for automatic allocation)
+- **Default value:** `auto`
+
+### `safeSpawn`
+- **Description:** Whether to search for a safe location when spawning a player.
+- **Accepted values:** `true`, `false`
+- **Default value:** `true`
+
+### `installSpark`
+- **Description:** Whether to install the <a href="/extensions/spark">Spark</a> extension on the server.
+- **Accepted values:** `true`, `false`
+- **Default value:** `true`
+
+### `waterdogpe`
+- **Description:** Whether to enable <a href="/extensions/wdpe">WaterdogPE</a> compatibility on the server.
+- **Accepted values:** `true`, `false`
+- **Default value:** `false`
+
+### `autosave`
+- **Description:** The tick cycle in which levels should be automatically saved. Only applies if `auto-save` is set to true in <a href="/configuration/files/server-properties">server.properties</a>.
+- **Accepted values:** Any number
+- **Default value:** `6000`
+
+### `saveUnknownBlock`
+- **Description:** Whether to save unknown blocks, such as unregistered custom blocks.
+- **Accepted values:** `true`, `false`
+- **Default value:** `true`
+
+## Network settings
+*Within the file: `network-settings`*
+
+### `compressionLevel`
+- **Description:** The level of the compression algorithm used by the server.
+- **Accepted values:**
+  - Minimum level: 1 *(worst compression, fastest)*
+  - Maximum level: 9 *(best compression, slowest)*
+- **Default value:** `7`
+
+### `zlibProvider`
+- **Description:** ZLib compression algorithm provider used by the server. Check out <a href="/configuration/compression-acceleration">server.properties</a> for more information.
+- **Accepted values:**
+  - 0: Default Java algorithm
+  - 1: single-threaded low memory usage alogrithm
+  - 2: multi-threaded caching algorithm
+  - 3: hardware-accelerated algorithm
+- **Default value:** `3`
+
+### `snappy`
+- **Description:** Whether the server uses Snappy compression (not recommended).
+- **Accepted values:** `true`, `false`
+- **Default value:** `false`
+
+### `compressionBufferSize`
+- **Description:** The buffer for server decompression.
+- **Accepted values:** Any number 
+- **Default value:** `1048576`
+
+### `maxDecompressSize`
+- **Description:** The maximum number of bytes the server can decompress.
+- **Accepted values:** Any number
+- **Default value:** `67108864`
+
+### `packetLimit`
+- **Description:** The maximum number of packets per second.
+- **Accepted values:** Any number 
+- **Default value:** `240`
+
+## Debug settings
+*Within the file: `debug-settings`*
+
+### `level`
+- **Description:** The server's debug level.
+- **Accepted values:** `INFO`, `DEBUG`, `TRACE`, `ALL`
+- **Default value:** `INFO`
+
+### `command`
+- **Description:** Whether to enable debug commands
+- **Accepted values:** `true`, `false`
+- **Default value:** `false`
+
+### `ignoredPackets`
+- **Description:** An array of packets ignored from logs at TRACE level.
+- **Accepted values:** Any packet class
+- **Default value:** `[]`
+
+### `allowBeta`
+- **Description:** Whether to allow the usage of beta features
+- **Accepted values:** `true`, `false`
+- **Default value:** `false`
+
+## Level settings
+*Within the file: `level-settings`*
+
+### `autoTickRate`
+- **Description:** Whether the server should dynamically adjust the tick rate
+- **Accepted values:** `true`, `false`
+- **Default value:** `true`
+
+### `autoTickRateLimit`
+- **Description:** The maximum adjustable tick count
+- **Accepted values:** Any number
+- **Default value:** `20`
+
+### `baseTickRate`
+- **Description:** The base tick rate
+- **Accepted values:** Any number
+- **Default value:** `1`
+
+### `alwaysTickPlayers`
+- **Description:** Whether to tick players
+- **Accepted values:** `true`, `false`
+- **Default value:** `false`
+
+### `enableRedstone`
+- **Description:** Whether to enable Redstone functionality
+- **Accepted values:** `true`, `false`
+- **Default value:** `true`
+
+### `tickRedstone`
+- **Description:** Whether to tick Redstone
+- **Accepted values:** `true`, `false`
+- **Default value:** `true`
+
+### `chunkUnloadDelay`
+- **Description:** The amount of tick cycles until a chunk unloads
+- **Accepted values:** Any number
+- **Default value:** `15000`
+
+### `levelThread`
+- **Description:** Whether to use a separate thread for each loaded level
+- **Accepted values:** `true`, `false`
+- **Default value:** `false`
+
+## Chunk settings
+*Within the file: `chunk-settings`*
+
+### `perTickSend`
+- **Description:** The maximum amount of chunks that can be sent to a player per tick.
+- **Accepted values:** Any number
+- **Default value:** `8`
+
+### `spawnThreshold`
+- **Description:** The number of chunks a players needs to receive upon first spawn.
+- **Accepted values:** Any number
+- **Default value:** `56`
+
+### `chunksPerTicks`
+- **Description:** The tick cycle of chunks.
+- **Accepted values:** Any number
+- **Default value:** `40`
+
+### `tickRadius`
+- **Description:** The radius of chunks to tick around players.
+- **Accepted values:** Any number
+- **Default value:** `3`
+
+### `lightUpdates`
+- **Description:** Whether chunks should perform light updates.
+- **Accepted values:** `true`, `false`
+- **Default value:** `true`
+
+### `clearTickList`
+- **Description:** Whether to clear the tick list at the end of each tick.
+- **Accepted values:** `true`, `false`
+- **Default value:** `false`
+
+### `generationQueueSize`
+- **Description:** The maximum amount of terrain generation tasks executed simultaneously.
+- **Accepted values:** Any number
+- **Default value:** `16`
+
+## Memory settings
+*Within the file: `level-settings`*
+
+:::note
+This section of the documentation has not been finished yet. Feel free to contribute! 🚀
+:::
+
+### `enable`
+- **Description:** Whether to enable the freeze array.
+- **Accepted values:** `true`, `false`
+- **Default value:** `true`
+
+### `slots`
+### `defaultTemperature`
+### `freezingPoint`
+### `boilingPoint`
+### `absoluteZero`
+### `melting`
+### `singleOperation`
+### `batchOperation`
+
+## Player settings
+*Within the file: `player-settings`*
+
+### `savePlayerData`
+- **Description:** Whether to allow the usage of beta features.
+- **Accepted values:** `true`, `false`
+- **Default value:** `false`
+
+### `skinChangeCooldown`
+- **Description:** Cooldown for players changing skins in seconds.
+- **Accepted values:** Any number
+- **Default value:** `30`
+
+### `forceSkinTrusted`
+- **Description:** Whether to force-trust player skins, allowing players to use third-party skins freely.
+- **Accepted values:** `true`, `false`
+- **Default value:** `false`
+
+### `checkMovement`
+- **Description:** Whether to check the player movement.
+- **Accepted values:** `true`, `false`
+- **Default value:** `true`
+
+### `spawnRadius`
+- **Description:** The radius from the spawn in which players should spawn in.
+- **Accepted values:** Any number
+- **Default value:** `16`
+
+## Gameplay settings
+*Within the file: `gameplay-settings`*
+
+### `enableCommandBlocks`
+- **Description:** Whether to allow players to use command blocks. If enabled, per-world gamerules still apply.
+- **Accepted values:** `true`, `false`
+- **Default value:** `true`

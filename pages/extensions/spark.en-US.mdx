@@ -1,0 +1,23 @@
+import { Callout, Steps } from "nextra/components";
+
+# Spark
+Spark is an advanced performance profiler for Minecraft clients, servers and proxies.
+Sometimes it is necessary to monitor performance in case the server causes lag. Spark helps determining the cause so you can quickly roll out a patch.
+
+## Set up Spark within PNX
+
+<Steps>
+    ### Open the configuration file <a href="/configuration/files/pnx-yml">pnx.yml</a>.
+
+    ### Locate the `settings` tab.
+    
+    ### Set `installSpark` to `true`.
+
+    ```yaml filename="pnx.yml"
+    settings:
+        installSpark: true
+    ```
+</Steps>
+
+## How to use Spark
+Check out the official documentation of Spark [here](https://spark.lucko.me/docs).

@@ -1,4 +1,4 @@
-import { Callout } from "nextra/components";
+import { Callout, Steps } from "nextra/components";
 
 # WaterdogPE Proxy
 Using a proxy, you can seamlessly transfer players between multiple servers. This is especially important if you are setting up a larger network which requires more flexibility.
@@ -10,9 +10,16 @@ To enable the support, follow the steps below.
 
 ## Usage
 
-1. Open the configuration file <a href="/configuration/files/pnx-yml">pnx.yml</a>.
-2. Locate the `settings` tab.
-3. Set `waterdogpe` to `true`.
+<Steps>
+    ### Open the configuration file <a href="/configuration/files/pnx-yml">pnx.yml</a>.
+    ### Locate the `settings` tab.
+    ### Set `waterdogpe` to `true`.
+
+    ```yaml filename="pnx.yml"
+    settings:
+        waterdogpe: true
+    ```
+</Steps>
 
 You only need to adjust the <a href="/configuration/files/pnx-yml">pnx.yml</a> in each sub-server by setting `waterdogpe=true` to use WaterdogPE.
 

@@ -1,0 +1,66 @@
+import { Callout, Steps } from "nextra/components";
+
+# Terra
+Terra is an [open-source generator](https://github.com/PolyhedralDev/Terra), you can use it to generate beautiful worlds.
+
+## Set up Terra within PNX
+
+<Steps>
+    ### Open the configuration file <a href="/configuration/files/server-properties">server.properties</a>.
+    ### Set `use-terra` to `on`.
+
+    ```properties filename="server.properties"
+    use-terra=on
+    ```
+</Steps>
+
+## Terra Packs
+Terra controls terrain generation through config packs. You can use different config packs for different experiences.
+It supports loading config packs from a ZIP file or a folder. To install a config pack, just place it in the `./terra/packs` folder and restart the server.
+
+🔹 Some available config packs can be found here: [Community Packs](https://terra.polydev.org/config/community-packs.html).
+
+### Configuring a config pack
+<Steps>
+    #### Download your desired config pack
+    
+    We will use the [ReimagEND](https://github.com/justaureus/ReimagEND) config pack as an example to describe how to use config packs.
+    For instructions on how to add the pack, check out [Terra's pack installation guides](https://terra.polydev.org/config/pack-installation.html)
+
+    #### Create a world folder
+
+    Create a folder for your world inside the `worlds` directory (such as `end`)
+
+    #### Create a <a href="/worlds/config">config file</a>
+    ```json showLineNumbers filename="config.json"
+    {
+        "format": "leveldb",
+        "enable": true,
+        "generators": {
+            "2": {
+                "name": "terra",
+                "seed": 0,
+                "enableAntiXray": false,
+                "antiXrayMode": "LOW",
+                "preDeobfuscate": true,
+                "dimensionData": {
+                    "dimensionName": "minecraft:end",
+                    "dimensionId": 2,
+                    "minHeight": 0,
+                    "maxHeight": 255,
+                    "height": 256,
+                    "chunkSectionCount": 16
+                },
+                "preset": {
+                    "pack": "REIMAGEND"
+                }
+            }
+        }
+    }
+    ```
+    If you make use of another pack, replace the value of `preset.pack` (right now `REIMAGEND`) with name of the used pack.
+    You can find the name within the `id` item of the file `pack.yml` inside the pack.
+
+    #### Reboot the server.
+    Reboot the server to apply the changes. Check out your world using `/world tp end Dim2` to teleport to the freshly generated world.
+</Steps>

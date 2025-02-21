@@ -1,0 +1,39 @@
+import { Callout, Tabs, Steps } from "nextra/components";
+
+# Importing worlds
+
+By default, PNX utilizes `leveldb` to store world data.
+If you plan to migrate to PNX and want to keep your worlds, follow the instructions below.
+
+<Tabs items={['LevelDB', 'Other']}>
+        <Tabs.Tab label="LevelDB">
+            Follow these steps if your world is already using `leveldb`.
+            <Steps>
+                ### Copy into `worlds`
+                Copy your world into the `worlds` folder of your server.
+
+                ### Add configuration
+                Create a suitable <a href="/worlds/config">config file</a> for your world.
+
+                ### Reboot the server
+                The world will be loaded on startup.
+            </Steps>
+        </Tabs.Tab>
+        <Tabs.Tab label="Other">
+            Follow these steps if your world is not using `leveldb` yet.
+            <Steps>
+                ### Convert the world
+                Use a converter capable of converting your world format into `leveldb`.
+                We recommend using [Chunker](https://chunker.app/)
+
+                ### Copy into `worlds`
+                Copy your converted world into the `worlds` folder of your server.
+
+                ### Add configuration
+                Create a suitable <a href="/worlds/config">config file</a> for your world.
+
+                ### Reboot the server
+                The world will be loaded on startup.
+            </Steps>
+        </Tabs.Tab>
+    </Tabs>

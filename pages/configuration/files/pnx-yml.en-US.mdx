@@ -38,13 +38,6 @@ level-settings:
   tickRedstone: true
   chunkUnloadDelay: 15000
   levelThread: false
-  default-format: leveldb
-  auto-tick-rate: true
-  auto-tick-rate-limit: 20
-  base-tick-rate: 1
-  always-tick-players: false
-  tick-redstone: true
-  chunk-unload-delay: 15000
 chunk-settings:
   perTickSend: 8
   spawnThreshold: 56
@@ -138,17 +131,17 @@ gameplay-settings:
 ### `compressionLevel`
 - **Description:** The level of the compression algorithm used by the server.
 - **Accepted values:**
-  - Minimum level: 1 *(worst compression, fastest)*
-  - Maximum level: 9 *(best compression, slowest)*
+  - Minimum level: `1` *(worst compression, fastest)*
+  - Maximum level: `9` *(best compression, slowest)*
 - **Default value:** `7`
 
 ### `zlibProvider`
 - **Description:** ZLib compression algorithm provider used by the server. Check out <a href="/configuration/compression-acceleration">Hardware Compression Acceleration</a> for more information.
 - **Accepted values:**
-  - 0: Default Java algorithm
-  - 1: single-threaded low memory usage alogrithm
-  - 2: multi-threaded caching algorithm
-  - 3: hardware-accelerated algorithm
+  - `0` (Default Java algorithm)
+  - `1` (Single-threaded low memory usage alogrithm)
+  - `2` (Multi-threaded caching algorithm)
+  - `3` (Hardware accelerated algorithm)
 - **Default value:** `3`
 
 ### `snappy`

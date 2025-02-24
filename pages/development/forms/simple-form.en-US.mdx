@@ -47,13 +47,17 @@ ButtonImage emeraldItem = ButtonImage.Type.PATH.of("textures/ui/emerald");
 ```
 
 ## Listeners
+
+### Invidivual buttons
 You can directly add a listener to a created button. If clicked by the player, the code will execute.
 ```java
 form.addButton("Emerald", ButtonImage.Type.PATH.of("textures/ui/emerald"), player -> player.sendMessage("You clicked the Emerald!"))
     .addButton("Diamond", ButtonImage.Type.PATH.of("textures/ui/diamond"), player -> player.sendMessage("You clicked the Diamond!")); // You can also chain methods!
 ```
 
+### Whole form
 You can listen to the whole form to detect if it has been submitted or closed.
+This can be useful if you - for example - add lots of buttons from an array and the consumer should do the same action for every button.
 ```java
 form.onSubmit((player, response) -> {
     int buttonId = response.buttonId(); // The ordinal of the clicked button (-1 if invalid
@@ -63,6 +67,7 @@ form.onSubmit((player, response) -> {
 form.onClose(player -> player.sendMessage("You have closed the form!"));
 ```
 
+### Using the event
 You can listen to the `PlayerFormRespondedEvent`.
 ```java
 @EventHandler

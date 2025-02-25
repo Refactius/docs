@@ -99,8 +99,8 @@ If you want to update a SimpleForm *while it is still opened to the player*, you
 
 ```java
 ElementButton button = new ElementButton("Netherite Ingot", ButtonImage.Type.PATH.of("textures/ui/netherite_ingot", player -> player.sendMessage("You clicked the Netherite Ingot!")));
-form.updateElement(0, button) // We want to replace the first button (index 0) with the new one
-    .sendUpdate(player); // Send the update to the player
+form.updateElement(0, button); // We want to replace the first button (index 0) with the new one
+form.sendUpdate(player); // Send the update to the player
 ```
 
 ## Example final code
@@ -119,8 +119,8 @@ SimpleForm form = new SimpleForm("Ingots", "Please select an Ingot to continue."
 // Remove the Netherite Ingot after 3 seconds open
 Server.getInstance().getScheduler().scheduleDelayedTask(() -> {
     if (form.isViewer(player)) {
-        form.removeElement(0)
-            .sendUpdate(player);
+        form.removeElement(0);
+        form.sendUpdate(player);
     }
 }, 3 * 20);
 ```

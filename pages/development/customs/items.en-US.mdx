@@ -1,0 +1,82 @@
+import { Callout } from "nextra/components";
+
+<Callout type={"info"}>
+When using custom items, players will need a resource pack containing all important texture data.
+Find out more about resource packs on <a href="https://wiki.bedrock.dev">wiki.bedrock.dev</a>
+</Callout>
+
+# Custom items
+On PNX, you can create your own items. Make sure your resource pack contains all data like the textures.
+
+## Register a custom item
+It is recommended to register your item while your plugin is loaded, but not enabled yet.
+You can register your item using
+```java
+//Imports
+import cn.nukkit.registry.RegisterException;
+import cn.nukkit.registry.Registries;
+
+//Later on, in your onLoad()
+try {
+    Registries.ITEM.registerCustomItem(this, MySword.class);
+} catch (RegisterException e) {
+    throw new RuntimeException(e);
+}
+```
+
+## Defining your item
+This is the minimum setup for your custom item. You can extend it as you wish.
+
+```java
+import cn.nukkit.item.ItemDiamondSword;
+import cn.nukkit.item.customitem.CustomItemDefinition;
+import cn.nukkit.item.customitem.ItemCustomTool;
+import cn.nukkit.item.customitem.data.CreativeCategory;
+
+public class MySword extends ItemCustomTool {
+    public MySword() {
+        super("powernukkitx:test_sward");
+    }
+
+    @Override
+    public CustomItemDefinition getDefinition() {
+        return CustomItemDefinition
+                .toolBuilder(this)
+                .creativeCategory(CreativeCategory.EQUIPMENT)
+                .texture("test_sward")
+                .name("Sword")
+                .allowOffHand(true)
+                .handEquipped(true)
+                .foil(true)
+                .build();
+    }
+
+    @Override
+    public int getMaxDurability() {
+        return 1000;
+    }
+
+    @Override
+    public int getTier() {
+        return ItemDiamondSword.TIER_DIAMOND;
+    }
+
+    @Override
+    public int getAttackDamage() {
+        return 30;
+    }
+
+    @Override
+    public int getEnchantAbility() {
+        return 20;
+    }
+
+    @Override
+    public boolean isSword() {
+        return true;
+    }
+}
+```
+
+## Need help?
+If you need help, check out our <a href="https://github.com/PowerNukkitX/ExamplePlugin-Maven">Example plugin</a> or join our <a href="https://discord.powernukkitx.org">discord server</a> and ask for help.

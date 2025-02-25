@@ -1,0 +1,70 @@
+import { Callout } from "nextra/components";
+
+<Callout type={"info"}>
+When using custom blocks, players will need a resource pack containing all important texture data.
+Find out more about resource packs on <a href="https://wiki.bedrock.dev">wiki.bedrock.dev</a>
+</Callout>
+
+# Custom blocks
+On PNX, you can create your own blocks. Make sure your resource pack contains all data like the blocks geometry (if you want a custom geometry), the textures etc.
+
+## Register a custom block
+It is recommended to register your block while your plugin is loaded, but not enabled yet.
+You can register your block using
+```java
+//Imports
+import cn.nukkit.registry.RegisterException;
+import cn.nukkit.registry.Registries;
+
+//Later on, in your onLoad()
+try {
+    Registries.BLOCK.registerCustomBlock(this, MyBlock.class);
+} catch (RegisterException e) {
+    throw new RuntimeException(e);
+}
+```
+
+## Defining your block
+This is the minimum setup for your custom block. You can extend it as you wish.
+
+```java
+import cn.nukkit.block.Block;
+import cn.nukkit.block.BlockProperties;
+import cn.nukkit.block.BlockState;
+import cn.nukkit.block.customblock.CustomBlock;
+import cn.nukkit.block.customblock.CustomBlockDefinition;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+public class MyBlock extends Block implements CustomBlock {
+    public static final BlockProperties PROPERTIES = new BlockProperties("powernukkitx:myblock");
+
+    public MyBlock() {
+        super(PROPERTIES.getDefaultState());
+    }
+
+    public MyBlock(@Nullable BlockState blockState) {
+        super(blockState);
+    }
+
+    @Override
+    public @NotNull BlockProperties getProperties() {
+        return PROPERTIES;
+    }
+
+    @Override
+    public CustomBlockDefinition getDefinition() {
+        return CustomBlockDefinition
+                .builder(this)
+                .texture("myblock")
+                .name("My custom block")
+                .breakTime(3)
+                .build();
+    }
+
+    //You can override every function from Block in here
+}
+```
+
+## Need help?
+If you need help, check out our <a href="https://github.com/PowerNukkitX/ExamplePlugin-Maven">Example plugin</a> or join our <a href="https://discord.powernukkitx.org">discord server</a> and ask for help.

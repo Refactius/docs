@@ -1,3 +1,6 @@
 {
+  "generic": "Generic",
+  "custom-form": "CustomForm",
+  "modal-form": "ModalForm",
   "simple-form": "SimpleForm"
 }

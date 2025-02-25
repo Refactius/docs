@@ -12,7 +12,7 @@ Check `Add sample code` and click on Create.
 
 ### Adding PNX to your project
 Open up the `pom.xml` file of your project and add paste the following code into the project tag:
-```pom
+```xml filename="pom.xml"
 <repositories>
     <repository>
         <id>jitpack.io</id>
@@ -34,7 +34,7 @@ Open up the `pom.xml` file of your project and add paste the following code into
 When using PowerNukkitX, you need a resource file containing information about your plugin.
 This file can be called `powernukkitx.yml` or `plugin.yml`.
 Simply create that file and paste in the following yml data. You might have to change a few values according to your project.
-```yml
+```yml filename="plugin.yml"
 name: ExamplePlugin
 main: org.powernukkitx.exampleplugin.Main
 #remember version and api is string, don't write it like this: 1.0.0, or there will be an exception
@@ -51,7 +51,7 @@ website: https://docs.powernukkitx.org/
 ### Writing your own code
 With that done, you can finally start with your own code. To do that, open the generated Main.java from your project.
 Delete the `Main` class and replace it with the following:
-```java
+```java filename="ExamplePlugin.java"
 public class ExamplePlugin extends PluginBase {
     @Override
     public void onLoad() {
